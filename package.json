@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nhatnv6767/learning-nodejs/issues"
   },
-  "homepage": "https://github.com/nhatnv6767/learning-nodejs#readme"
+  "homepage": "https://github.com/nhatnv6767/learning-nodejs#readme",
+  "dependencies": {
+    "express": "4.17.1"
+  }
 }
