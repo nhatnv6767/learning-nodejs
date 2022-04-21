@@ -3,7 +3,7 @@ import mysql from 'mysql2';
 
 // create the connection to database
 const connection = mysql.createConnection({
-    host: '192.168.1.113',
+    host: 'localhost',
     user: 'root',
     database: 'nodejsbasic'
 });
@@ -12,7 +12,10 @@ const connection = mysql.createConnection({
 connection.query(
     'SELECT * FROM `users` ',
     function (err, results, fields) {
+        console.log('>>>> Check mysql')
         console.log(results); // results contains rows returned by server
         console.log(fields); // fields contains extra meta data about results, if available
     }
 );
+
+export default connection;
