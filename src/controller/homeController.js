@@ -18,7 +18,7 @@ let getHomePage = (req, res) => {
                     lastName: row.lastName
                 })
             })
-            return res.render('index.ejs', { dataUser: data });
+            return res.render('index.ejs', { dataUser: data, test: "aaaaa" });
         }
     );
 
