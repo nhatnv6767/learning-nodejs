@@ -18,12 +18,12 @@ let getHomePage = (req, res) => {
                     lastName: row.lastName
                 })
             })
-            console.log('>>>> Check data:', data);
+            return res.render('test/index.ejs', { dataUser: JSON.stringify(data) });
         }
     );
 
 
-    return res.render('test/index.ejs', { dataUser: JSON.stringify(data) });
+
 }
 
 module.exports = {
