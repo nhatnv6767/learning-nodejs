@@ -6,6 +6,10 @@ const initWebRoute = (app) => {
         res.render('test/index.ejs')
     })
 
+    router.get('/about', (req, res) => {
+        res.send(`I'm rich!`)
+    })
+
     return app.use('/', router)
 }
 
