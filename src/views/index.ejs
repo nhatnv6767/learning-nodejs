@@ -31,11 +31,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jill</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
                     <% for(let i=0; i < dataUser.length; i++) { %>
                         <tr>
                             <td>
@@ -46,6 +41,11 @@
                             </td>
                             <td>
                                 <%= dataUser[i].lastName %>
+                            </td>
+                            <td>
+                                <button type="button">Detail</button>
+                                <button type="button">Edit</button>
+                                <button type="button">Delete</button>
                             </td>
                         </tr>
                         <% } %>
