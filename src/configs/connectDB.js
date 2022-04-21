@@ -9,13 +9,15 @@ const connection = mysql.createConnection({
 });
 
 // simple query
-connection.query(
-    'SELECT * FROM `users` ',
-    function (err, results, fields) {
-        console.log('>>>> Check mysql')
-        console.log(results); // results contains rows returned by server
-        console.log(fields); // fields contains extra meta data about results, if available
-    }
-);
+// connection.query(
+//     'SELECT * FROM `users` ',
+//     function (err, results, fields) {
+//         console.log('>>>> Check mysql')
+//         console.log(results); // results contains rows returned by server
+
+//         let rows = results.map((row) => { return row })
+//         console.log(rows);
+//     }
+// );
 
 export default connection;
