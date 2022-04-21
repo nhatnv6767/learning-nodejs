@@ -31,25 +31,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%= test %>
-                        <% for(let i=0; i < dataUser.length; i++) { %>
-                            <tr>
-                                <td>
-                                    <%= dataUser[i].id %>
-                                </td>
-                                <td>
-                                    <%= dataUser[i].firstName %>
-                                </td>
-                                <td>
-                                    <%= dataUser[i].lastName %>
-                                </td>
-                                <td>
-                                    <button type="button">Detail</button>
-                                    <button type="button">Edit</button>
-                                    <button type="button">Delete</button>
-                                </td>
-                            </tr>
-                            <% } %>
+                    <% for(let i=0; i < dataUser.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= dataUser[i].id %>
+                            </td>
+                            <td>
+                                <%= dataUser[i].firstName %>
+                            </td>
+                            <td>
+                                <%= dataUser[i].lastName %>
+                            </td>
+                            <td>
+                                <button type="button">
+                                    <a href="/detail/user/" target="_blank">
+                                        Detail
+                                    </a>
+                                </button>
+                                <button type="button">Edit</button>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <% } %>
 
                 </tbody>
 
