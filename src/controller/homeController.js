@@ -1,6 +1,6 @@
 import connection from '../configs/connectDB'
 
-let getHomePage = (req, res) => {
+let getHomePage = async (req, res) => {
     // logic
 
     // simple query
@@ -18,10 +18,13 @@ let getHomePage = (req, res) => {
                     lastName: row.lastName
                 })
             })
-            return res.render('index.ejs', { dataUser: data });
+            // return res.render('index.ejs', { dataUser: data });
         }
     );
 
+
+    const [rows, fields] = await connection.execute('SELECT * FROM users');
+    console.log(">>> Check rows: ", rows);
 
 
 }
