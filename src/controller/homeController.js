@@ -8,8 +8,11 @@ let getHomePage = async (req, res) => {
 
 }
 
-let getDetailPage = (req, res) => {
-    console.log("Check req params: ", req.params)
+let getDetailPage = async (req, res) => {
+    let id = req.params.id;
+    let user = await pool.execute('select from users where id = 1')
+
+    console.log("Check req params: ", user)
     return res.send("Hello Detail Page")
 }
 
