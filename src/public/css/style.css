@@ -36,3 +36,9 @@ body {
     display: block;
 
 }
+
+.create-user-container .btn-submit {
+    margin-top: 15px;
+    cursor    : pointer;
+
+}
