@@ -9,6 +9,7 @@ let getHomePage = async (req, res) => {
 }
 
 let getDetailPage = (req, res) => {
+    console.log("Check req params: ", req.params)
     return res.send("Hello Detail Page")
 }
 
