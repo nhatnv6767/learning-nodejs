@@ -9,11 +9,10 @@ let getHomePage = async (req, res) => {
 }
 
 let getDetailPage = async (req, res) => {
-    let id = req.params.id;
-    let user = await pool.execute('select from users where id = 1')
-
-    console.log("Check req params: ", user)
-    return res.send("Hello Detail Page")
+    let userId = req.params.id;
+    // [] - giá trị tương ứng truyền vào dấu ?
+    let user = await pool.execute(`select * from users where id = ?`, [userId])
+    return res.send(JSON.stringify(user[0]))
 }
 
 module.exports = {
