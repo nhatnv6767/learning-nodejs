@@ -16,6 +16,7 @@ let getDetailPage = async (req, res) => {
 }
 
 let createNewUser = (req, res) => {
+    console.log("check request: ", req.body);
     return res.send('call post create new user')
 }
 
