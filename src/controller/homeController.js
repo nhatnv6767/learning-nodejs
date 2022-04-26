@@ -15,6 +15,10 @@ let getDetailPage = async (req, res) => {
     return res.send(JSON.stringify(user))
 }
 
+let createNewUser = (req, res) => {
+    return res.send('call post create new user')
+}
+
 module.exports = {
-    getHomePage, getDetailPage
+    getHomePage, getDetailPage, createNewUser
 }
