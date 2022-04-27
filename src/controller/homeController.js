@@ -31,7 +31,8 @@ let getEditUser = async (req, res) => {
     // biến user là 1 array có 2 phần tử,
     // phần tử 1 là data chúng ta lấy về, phần tử 2 là fields
     let [user] = await pool.execute('select * from users where id = ?', [id])
-    return res.send(`Hello edit user ${req.params.id}`)
+
+    return res.send(JSON.stringify(user))
 }
 
 module.exports = {
