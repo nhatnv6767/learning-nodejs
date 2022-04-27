@@ -43,13 +43,13 @@
                                 <%= dataUser[i].lastName %>
                             </td>
                             <td>
-                                <button type="button">
-                                    <a href="/detail/user/<%= dataUser[i].id %>" target="_blank">
-                                        Detail
-                                    </a>
-                                </button>
+                                <a href="/detail/user/<%= dataUser[i].id %>" target="_blank">
+                                    Detail
+                                </a>
                                 <button type="button">Edit</button>
-                                <button type="button">Delete</button>
+                                <form action="/delete-user" method="POST">
+                                    <button type="button">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         <% } %>
