@@ -32,7 +32,7 @@ let getEditUser = async (req, res) => {
     // phần tử 1 là data chúng ta lấy về, phần tử 2 là fields
     let [user] = await pool.execute('select * from users where id = ?', [id])
 
-    return res.send(JSON.stringify(user))
+    return res.render('update.ejs')
 }
 
 module.exports = {
