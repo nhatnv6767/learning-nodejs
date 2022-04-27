@@ -1,11 +1,8 @@
 import pool from '../configs/connectDB'
 
 let getHomePage = async (req, res) => {
-
-
     const [rows, fields] = await pool.execute('SELECT * FROM users');
     return res.render('index.ejs', { dataUser: rows });
-
 }
 
 let getDetailPage = async (req, res) => {
@@ -29,6 +26,10 @@ let deleteUser = async (req, res) => {
     return res.redirect('/')
 }
 
+let getEditUser = async (req, res) => {
+    return res.send(`Hello edit user`)
+}
+
 module.exports = {
-    getHomePage, getDetailPage, createNewUser, deleteUser
+    getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser
 }
