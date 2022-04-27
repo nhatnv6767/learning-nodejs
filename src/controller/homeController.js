@@ -23,8 +23,10 @@ let createNewUser = async (req, res) => {
     return res.redirect('/')
 }
 
-let deleteUser = (req, res) => {
-    return res.send("Hello from delete user")
+let deleteUser = async (req, res) => {
+    let userId = req.body.userId;
+    await pool.execute('delete from users where id = ?', [userId])
+    return res.redirect('/')
 }
 
 module.exports = {
