@@ -31,12 +31,10 @@ let getEditUser = async (req, res) => {
     // biến user là 1 array có 2 phần tử,
     // phần tử 1 là data chúng ta lấy về, phần tử 2 là fields
     let [user] = await pool.execute('select * from users where id = ?', [id])
-
-    console.log("user >>>>> ", user)
     // x <- y | key and value
     // key là cái ta muốn access bên view, còn giá trị của nó là user - biến 
     // đang sử dụng trong controller
-    return res.render('update.ejs', { dataUser: user })
+    return res.render('update.ejs', { dataUser: user[0] })
 }
 
 module.exports = {
