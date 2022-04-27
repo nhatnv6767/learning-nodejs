@@ -48,6 +48,7 @@
                                 </a>
                                 <button type="button">Edit</button>
                                 <form action="/delete-user" method="POST">
+                                    <input type="text" hidden value="<%= dataUser[i].id %>" name="userId" />
                                     <button type="submit">Delete</button>
                                 </form>
                             </td>
