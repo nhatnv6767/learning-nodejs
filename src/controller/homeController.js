@@ -38,7 +38,9 @@ let getEditUser = async (req, res) => {
 }
 
 let postUpdateUser = async (req, res) => {
-    console.log("Check request: ", req.body)
+    let { firstName, lastName, email, address } = req.body
+
+    await pool.execute('update users set firstName = ?, lastName = ?, email = ?, address = ? where id = ?', [firstName, lastName, email, address])
     return res.send(`Hello update user`)
 }
 
