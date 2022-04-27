@@ -41,7 +41,7 @@ let postUpdateUser = async (req, res) => {
     let { firstName, lastName, email, address, id } = req.body
 
     await pool.execute('update users set firstName = ?, lastName = ?, email = ?, address = ? where id = ?', [firstName, lastName, email, address, id])
-    return res.send(`Hello update user`)
+    return res.redirect('/')
 }
 
 module.exports = {
