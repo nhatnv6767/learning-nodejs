@@ -23,6 +23,10 @@ let createNewUser = async (req, res) => {
     return res.redirect('/')
 }
 
+let deleteUser = (req, res) => {
+    return res.send("Hello from delete user")
+}
+
 module.exports = {
-    getHomePage, getDetailPage, createNewUser
+    getHomePage, getDetailPage, createNewUser, deleteUser
 }
