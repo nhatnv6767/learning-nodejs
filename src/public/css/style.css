@@ -44,9 +44,15 @@ body {
 }
 
 .update-user-container {
-    padding: 15px;
+    padding   : 15px;
+    text-align: center;
 }
 
 .update-user-container label {
     display: block;
+}
+
+.btn-save {
+    margin-top: 15px;
+    cursor    : pointer;
 }
