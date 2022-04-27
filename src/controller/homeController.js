@@ -38,6 +38,7 @@ let getEditUser = async (req, res) => {
 }
 
 let postUpdateUser = async (req, res) => {
+    console.log("Check request: ", req.body)
     return res.send(`Hello update user`)
 }
 
