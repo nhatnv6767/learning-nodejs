@@ -27,7 +27,7 @@ let deleteUser = async (req, res) => {
 }
 
 let getEditUser = async (req, res) => {
-    return res.send(`Hello edit user`)
+    return res.send(`Hello edit user ${req.params.id}`)
 }
 
 module.exports = {
