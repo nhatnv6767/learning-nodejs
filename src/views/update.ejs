@@ -10,11 +10,10 @@
 
 <body>
     <div class="update-user-container">
-        <form>
+        <form action="/update-user" method="POST">
             <div>
-                <%= JSON.stringify(dataUser) %>
-                    <label>First Name:</label>
-                    <input name="firstName" value="<%= dataUser.firstName %>" />
+                <label>First Name:</label>
+                <input name="firstName" value="<%= dataUser.firstName %>" />
             </div>
 
             <div>

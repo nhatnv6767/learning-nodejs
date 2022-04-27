@@ -37,6 +37,10 @@ let getEditUser = async (req, res) => {
     return res.render('update.ejs', { dataUser: user[0] })
 }
 
+let postUpdateUser = async (req, res) => {
+    return res.send(`Hello update user`)
+}
+
 module.exports = {
-    getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser
+    getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser, postUpdateUser
 }
