@@ -1,3 +1,7 @@
-let getAllUsers = () => {
+let getAllUsers = (req, res) => {
 
+}
+
+module.exports = {
+    getAllUsers
 }
