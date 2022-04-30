@@ -28,14 +28,14 @@ let createNewUser = async (req, res) => {
 
 let updateUser = async (req, res) => {
 
-    let { firstName, lastName, email, address, id } = req.body;
-    if (!firstName || !lastName || !email || !address) {
-        return res.status(200).json({
-            message: 'missing required params'
-        })
-    }
-    await pool.execute('UPDATE users SET firstName = ?, lastName = ?, email = ?, address = ? where id = ?',
-        [firstName, lastName, email, address, id])
+    // let { firstName, lastName, email, address, id } = req.body;
+    // if (!firstName || !lastName || !email || !address) {
+    //     return res.status(200).json({
+    //         message: 'missing required params'
+    //     })
+    // }
+    // await pool.execute('UPDATE users SET firstName = ?, lastName = ?, email = ?, address = ? where id = ?',
+    //     [firstName, lastName, email, address, id])
 
     return res.status(200).json({
         message: 'update user ok',
