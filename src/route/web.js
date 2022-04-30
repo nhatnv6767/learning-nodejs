@@ -9,6 +9,8 @@ const initWebRoute = (app) => {
     router.post('/delete-user', homeController.deleteUser)
     router.get('/edit-user/:id', homeController.getEditUser)
     router.post('/update-user', homeController.postUpdateUser)
+
+    router.get('/upload', homeController.getUploadFilePage)
     router.get('/about', (req, res) => {
         res.send(`I'm rich!`)
     })
