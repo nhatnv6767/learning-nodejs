@@ -1,6 +1,10 @@
-let getAllUsers = (req, res) => {
+import pool from '../configs/connectDB'
+
+let getAllUsers = async (req, res) => {
+    const [rows, fields] = await pool.execute('SELECT * from users')
     return res.status(200).json({
-        message: 'ok'
+        message: 'ok',
+        data: rows,
     })
 }
 
