@@ -9,6 +9,13 @@ let getAllUsers = async (req, res) => {
 }
 
 let createNewUser = async (req, res) => {
+    let { firstName, lastName, email, address } = req.body;
+
+    
+
+    await pool.execute('INSERT INTO users(firstName, lastName, email, address) VALUES (?, ?, ?, ?)',
+        [firstName, lastName, email, address])
+
     return res.status(200).json({
         message: 'ok',
 
