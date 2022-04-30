@@ -44,7 +44,7 @@ let updateUser = async (req, res) => {
 
 let deleteUser = async (req, res) => {
 
-    let userId = req.params.userId;
+    let userId = req.params.id;
     if (!userId) {
         return res.status(200).json({
             message: 'missing required params'
