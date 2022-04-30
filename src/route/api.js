@@ -9,4 +9,3 @@ const initAPIRoute = (app) => {
 }
 
 export default initAPIRoute;
-// module.exports = initWebRoute;
