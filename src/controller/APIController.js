@@ -43,6 +43,15 @@ let updateUser = async (req, res) => {
 }
 
 let deleteUser = async (req, res) => {
+
+    let userId = req.params.userId;
+    if (!userId) {
+        return res.status(200).json({
+            message: 'missing required params'
+        })
+    }
+    await pool.execute('delete from users where id = ?', [userId])
+
     return res.status(200).json({
         message: 'delete user ok',
     })
