@@ -48,7 +48,11 @@ let getUploadFilePage = async (req, res) => {
     return res.render('uploadFile.ejs', {})
 }
 
+let handleUploadFile = async (req, res) => {
+    
+}
+
 module.exports = {
     getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser, postUpdateUser,
-    getUploadFilePage
+    getUploadFilePage, handleUploadFile
 }
