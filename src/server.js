@@ -10,9 +10,11 @@ var morgan = require('morgan')
 const app = express()
 const port = process.env.PORT || 8087;
 
-app.use((req, res) => {
+app.use((req, res, next) => {
     console.log('>>>>> RUN INTO MY MIDDLEWARE: ', req.method)
     console.log(req.header)
+    // go to => continue
+    next()
 })
 
 app.use(morgan('combined'))
