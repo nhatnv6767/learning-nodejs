@@ -5,10 +5,12 @@ import initAPIRoute from './route/api'
 // import connect from './configs/connectDB'
 
 require('dotenv').config()
+var morgan = require('morgan')
 
 const app = express()
 const port = process.env.PORT || 8087;
 
+app.use(morgan('combined'))
 // hỗ trợ gửi data từ client lên server
 // để có thể lấy data dễ dàng
 app.use(express.urlencoded({ extended: true }));
