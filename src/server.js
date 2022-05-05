@@ -14,6 +14,7 @@ app.use((req, res, next) => {
     console.log('>>>>> RUN INTO MY MIDDLEWARE: ', req.method)
     console.log(req.header)
     // go to => continue
+    // dùng khi request hợp lệ thì ta cho đi tiếp
     next()
 })
 
