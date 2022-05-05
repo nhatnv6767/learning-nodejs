@@ -1,4 +1,6 @@
 import pool from '../configs/connectDB'
+import multer from 'multer'
+import path from 'path'
 
 let getHomePage = async (req, res) => {
     const [rows, fields] = await pool.execute('SELECT * FROM users');
@@ -48,8 +50,19 @@ let getUploadFilePage = async (req, res) => {
     return res.render('uploadFile.ejs', {})
 }
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+
+    // By default, multer removes file extensions so let's add them back
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
 let handleUploadFile = async (req, res) => {
-    
+
 }
 
 module.exports = {
