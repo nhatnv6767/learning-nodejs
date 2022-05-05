@@ -10,6 +10,11 @@ var morgan = require('morgan')
 const app = express()
 const port = process.env.PORT || 8087;
 
+app.use((req, res) => {
+    console.log('>>>>> RUN INTO MY MIDDLEWARE: ', req.method)
+    console.log(req.header)
+})
+
 app.use(morgan('combined'))
 // hỗ trợ gửi data từ client lên server
 // để có thể lấy data dễ dàng
