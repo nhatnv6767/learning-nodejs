@@ -27,6 +27,7 @@ const imageFilter = function (req, file, cb) {
 };
 // middleware
 let upload = multer({ storage: storage, fileFilter: imageFilter })
+let uploadErr = multer({ storage: storage, fileFilter: imageFilter }).array('multiple_images', 3)
 
 const initWebRoute = (app) => {
     router.get('/', homeController.getHomePage)
