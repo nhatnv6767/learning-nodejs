@@ -17,17 +17,15 @@ app.use(express.json());
 // setup view engine
 configViewEngine(app)
 
-// handle 404 notFound
-app.use((req, res) => {
-    return res.render('404.ejs')
-})
-
 // init web route
 initWebRoute(app)
 
 initAPIRoute(app)
 
-
+// handle 404 notFound
+app.use((req, res) => {
+    return res.render('404.ejs')
+})
 
 app.listen(port, () => {
     console.log(`listening at http://localhost: ${port}`)
