@@ -22,6 +22,11 @@ initWebRoute(app)
 
 initAPIRoute(app)
 
+// handle 404 notFound
+app.use((req, res) => {
+    return res.send('404.ejs')
+})
+
 app.listen(port, () => {
     console.log(`listening at http://localhost: ${port}`)
 })
