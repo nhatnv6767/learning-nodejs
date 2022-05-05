@@ -54,7 +54,7 @@ let getUploadFilePage = async (req, res) => {
 
 const upload = multer().single('profile-pic')
 
-const uploadMultiple = multer().array('multiple_images')
+const uploadMultiple = multer().array('multiple_images', 3)
 
 
 let handleUploadFile = async (req, res) => {
