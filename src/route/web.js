@@ -11,7 +11,7 @@ const initWebRoute = (app) => {
     router.post('/update-user', homeController.postUpdateUser)
 
     router.get('/upload', homeController.getUploadFilePage)
-    router.post('/upload-profile-pic', homeController.handleUploadFile)
+    router.post('/upload-profile-pic', upload.single('profile_pic'), homeController.handleUploadFile)
 
     router.get('/about', (req, res) => {
         res.send(`I'm rich!`)

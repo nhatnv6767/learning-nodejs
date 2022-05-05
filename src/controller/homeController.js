@@ -1,6 +1,6 @@
 import pool from '../configs/connectDB'
 import multer from 'multer'
-import path from 'path'
+
 
 let getHomePage = async (req, res) => {
     const [rows, fields] = await pool.execute('SELECT * FROM users');
@@ -70,10 +70,12 @@ const imageFilter = function (req, file, cb) {
     cb(null, true);
 };
 
+const upload = multer().single('profile-pic')
+
 let handleUploadFile = async (req, res) => {
     // 'profile_pic' is the name of our file input field in the HTML form
     // profile_pic mapping with uploadFile.ejs
-    let upload = multer({ storage: storage, fileFilter: imageFilter }).single('profile_pic');
+    // let upload = multer({ storage: storage, fileFilter: imageFilter }).single('profile_pic');
 
     upload(req, res, function (err) {
         // req.file contains information of uploaded file
@@ -93,7 +95,7 @@ let handleUploadFile = async (req, res) => {
         }
 
         // Display uploaded image for user validation
-        res.send(`You have uploaded this image: <hr/><img src="${req.file.path}" width="500"><hr /><a href="./">Upload another image</a>`);
+        res.send(`You have uploaded this image: <hr/><img src="/image/${req.file.filename}" width="500"><hr /><a href="/upload">Upload another image</a>`);
     });
 }
 
