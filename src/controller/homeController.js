@@ -81,8 +81,12 @@ let handleUploadFile = async (req, res) => {
     });
 }
 
+let handleUploadMultipleFile = async (req, res) => {
+
+}
+
 
 module.exports = {
     getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser, postUpdateUser,
-    getUploadFilePage, handleUploadFile
+    getUploadFilePage, handleUploadFile, handleUploadMultipleFile
 }
