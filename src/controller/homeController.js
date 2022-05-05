@@ -54,7 +54,7 @@ let getUploadFilePage = async (req, res) => {
 
 const upload = multer().single('profile-pic')
 
-const uploadMultiple = multer().array('multiple_images', 3)
+// const uploadMultiple = multer().array('multiple_images', 3)
 
 
 let handleUploadFile = async (req, res) => {
@@ -86,31 +86,29 @@ let handleUploadFile = async (req, res) => {
 
 let handleUploadMultipleFiles = async (req, res) => {
 
-    uploadMultiple(req, res, function (err) {
-        if (req.fileValidationError) {
-            return res.send(req.fileValidationError);
-        }
-        else if (!req.files) {
-            return res.send('Please select an image to upload');
-        }
-        else if (err instanceof multer.MulterError) {
-            return res.send(err);
-        }
-        else if (err) {
-            return res.send(err);
-        }
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.files) {
+        return res.send('Please select an image to upload');
+    }
+    else if (err instanceof multer.MulterError) {
+        return res.send(err);
+    }
+    else if (err) {
+        return res.send(err);
+    }
 
-        let result = "You have uploaded these images: <hr />";
-        const files = req.files;
-        let index, len;
+    let result = "You have uploaded these images: <hr />";
+    const files = req.files;
+    let index, len;
 
-        // Loop through all the uploaded images and display them on frontend
-        for (index = 0, len = files.length; index < len; ++index) {
-            result += `<img src="/image/${files[index].filename}" width="300" style="margin-right: 20px;">`;
-        }
-        result += '<hr/><a href="/upload">Upload more images</a>';
-        res.send(result);
-    });
+    // Loop through all the uploaded images and display them on frontend
+    for (index = 0, len = files.length; index < len; ++index) {
+        result += `<img src="/image/${files[index].filename}" width="300" style="margin-right: 20px;">`;
+    }
+    result += '<hr/><a href="/upload">Upload more images</a>';
+    res.send(result);
 }
 
 
