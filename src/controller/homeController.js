@@ -61,10 +61,19 @@ const storage = multer.diskStorage({
     }
 });
 
+const imageFilter = function (req, file, cb) {
+    // Accept images only
+    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
+        req.fileValidationError = 'Only image files are allowed!';
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+
 let handleUploadFile = async (req, res) => {
     // 'profile_pic' is the name of our file input field in the HTML form
     // profile_pic mapping with uploadFile.ejs
-    let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('profile_pic');
+    let upload = multer({ storage: storage, fileFilter: imageFilter }).single('profile_pic');
 
     upload(req, res, function (err) {
         // req.file contains information of uploaded file
@@ -88,10 +97,6 @@ let handleUploadFile = async (req, res) => {
     });
 }
 
-app.post('/upload-profile-pic', (req, res) => {
-
-
-});
 
 module.exports = {
     getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser, postUpdateUser,
