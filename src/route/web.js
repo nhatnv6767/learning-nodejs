@@ -38,7 +38,7 @@ const initWebRoute = (app) => {
 
     router.get('/upload', homeController.getUploadFilePage)
     router.post('/upload-profile-pic', upload.single('profile_pic'), homeController.handleUploadFile)
-    router.post('/upload-multiple-images', homeController.handleUploadMultipleFile)
+    router.post('/upload-multiple-images', upload.array('multiple_images', 3), homeController.handleUploadMultipleFiles)
     router.get('/about', (req, res) => {
         res.send(`I'm rich!`)
     })

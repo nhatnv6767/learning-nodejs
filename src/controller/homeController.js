@@ -54,6 +54,9 @@ let getUploadFilePage = async (req, res) => {
 
 const upload = multer().single('profile-pic')
 
+const uploadMultiple = multer().array('multiple_images')
+
+
 let handleUploadFile = async (req, res) => {
     // 'profile_pic' is the name of our file input field in the HTML form
     // profile_pic mapping with uploadFile.ejs
@@ -88,5 +91,5 @@ let handleUploadMultipleFile = async (req, res) => {
 
 module.exports = {
     getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser, postUpdateUser,
-    getUploadFilePage, handleUploadFile, handleUploadMultipleFile
+    getUploadFilePage, handleUploadFile, handleUploadMultipleFiles
 }
