@@ -92,12 +92,6 @@ let handleUploadMultipleFiles = async (req, res) => {
     else if (!req.files) {
         return res.send('Please select an image to upload');
     }
-    else if (err instanceof multer.MulterError) {
-        return res.send(err);
-    }
-    else if (err) {
-        return res.send(err);
-    }
 
     let result = "You have uploaded these images: <hr />";
     const files = req.files;
