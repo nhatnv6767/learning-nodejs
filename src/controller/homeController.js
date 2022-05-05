@@ -86,6 +86,31 @@ let handleUploadFile = async (req, res) => {
 
 let handleUploadMultipleFile = async (req, res) => {
 
+    uploadMultiple(req, res, function (err) {
+        if (req.fileValidationError) {
+            return res.send(req.fileValidationError);
+        }
+        else if (!req.file) {
+            return res.send('Please select an image to upload');
+        }
+        else if (err instanceof multer.MulterError) {
+            return res.send(err);
+        }
+        else if (err) {
+            return res.send(err);
+        }
+
+        let result = "You have uploaded these images: <hr />";
+        const files = req.files;
+        let index, len;
+
+        // Loop through all the uploaded images and display them on frontend
+        for (index = 0, len = files.length; index < len; ++index) {
+            result += `<img src="${files[index].path}" width="300" style="margin-right: 20px;">`;
+        }
+        result += '<hr/><a href="./">Upload more images</a>';
+        res.send(result);
+    });
 }
 
 
